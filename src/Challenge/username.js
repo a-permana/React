@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react';
 
-export default function username() {
-    return (
-        <div>
-           <h4> alek permana </h4> 
-        </div>
-    )
-}
+export default class name extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {name: props.name};
+    }
+    render(){
+        return <div>{this.props.name}</div>
+
+        }
+    }
+    name.defaultProps = {
+        name : 'alek permana'
+    };
