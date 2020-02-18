@@ -1,12 +1,13 @@
-import Greeting from "./Challenge/Greetings" 
-import { Container, Row, Col } from "reactstrap";
-import React from "react";
+import React from 'react';
+import logo from './asd.jpg';
+//  import { Container, Row, Col } from "reacstrap";
+import Userprofile from './Challenge/UserProfile';
 
-function App() {
+export default function App() {
   return (
-    <container>
-      <Greeting name="Alek" age="26" gender="male" />
-    </container>
-  );
+    <div>
+      <Userprofile />
+      
+    </div>
+  )
 }
-export default App;
