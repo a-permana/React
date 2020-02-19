@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<App/>, document.getElementById('root'));
 serviceWorker.unregister();
+
+// import Profile from './router/profile';
+// import About from './router/about';
+// import Notfound from './router/notfound';
+// import Multiform from './router/multiform';
+// import Nameform from './router/nameform';
+// import Form form './Validation/Form';
+// import FormErrors from './Validation/FormErrors';
