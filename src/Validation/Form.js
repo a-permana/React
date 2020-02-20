@@ -35,8 +35,8 @@ class Form extends Component {
 
         switch(fieldName) {
             case 'name':
-                emailValid = value.length < 3;
-                fieldValidationErrors.name = nameValid ? '' : ' atleast 3 character required ';
+                emailValid = value.match;
+                // fieldValidationErrors.name = nameValid ? '' : ' atleast 3 character required ';
                 break;
             case 'email':
                 emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -101,14 +101,14 @@ class Form extends Component {
                         <div className={`form-
                 group ${this.errorClass(this.state.formErrors.passwordConfirm)}`}>
                         <label htmlFor="passwordConfirm">Password Confirm</label>
-                        <input type="passwordConfirm" className="form-control" name="passwordConfirm"
+                        <input type="password" className="form-control" name="passwordConfirm"
                             placeholder="passwordConfirm"
                             value={this.state.passwordConfirm}
                             onChange={this.handleUserInput} />
                         </div>
 
                         <button type="submit" className="btn btn-
-                primary" disabled={!this.state.formValid}>Sign up</button>
+                primary">Sign up</button>
                     </form>
                 )
             }
