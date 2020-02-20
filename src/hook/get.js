@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
-export default App = () => {
-    const url = 'https://jsonplaceholder.typicode.com/users'
+function Get () {
+    const url = 'http://localhost:3000/books'
     
     const [data, setData] = useState([])
     
@@ -11,13 +11,15 @@ export default App = () => {
     }, [])
 
     const renderTable = () => {
-        return data.map(user => {
+        return data.map(book => {
             return (
                 <tr>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.address.street}</td>
-                    <td>{user.company.name}</td>
+                    <td>{book.title}</td>
+                    <td>{book.author}</td>
+                    <td>{book.published_id}</td>
+                    <td>{book.pages}</td>
+                    <td>{book.language}</td>
+                    <td>{book.publisher_id}</td>
                 </tr>
             )
         })
@@ -25,13 +27,17 @@ export default App = () => {
     return (
         <div>
             <h1 id="title">API Table</h1>
-                <table id="users">
+                <table id="books">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Company</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Published ID</th>
+                            <th>Pages</th>
+                            <th>Language</th>
+                            <th>Publisher ID</th>
+                            
+                            
                         </tr>
                     </thead>
                 <tbody>{renderTable()}</tbody>
@@ -39,3 +45,4 @@ export default App = () => {
         </div>
     )
 }
+export default Get;
