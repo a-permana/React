@@ -10,9 +10,8 @@ import Multiform from './router/multiform';
 import Nameform from './router/nameform';
 import About from './router/about';
 import Main from './layouts/main';
-// import FormHook from './Validation/FormHook';
-import Form from './Validation/Form';
-// import FormErrors from './Validation/formErrors';
+// import Form from './Validation/Form';
+import FormHook from './Validation/FormHook';
 // import Notfound from './router/notfound';
 
 const App = props => {
@@ -27,9 +26,8 @@ const App = props => {
           <Route path="/about" component={About} />
           <Route path="/multiform" component={Multiform} />
           <Route path="/nameform" component={Nameform} />
-          {/* <Route path="/FormHook" component={FormHook} /> */}
+          <Route path="/FormHook" component={FormHook} />
           {/* <Route path="/Form" component={Form} /> */}
-          {/* <Route path="/FormErrors" component={FormErrors} /> */}
           {/* <Route component={Notfound} /> */}
         </Switch>
       </Main>

@@ -1,7 +1,9 @@
 import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { Form } from 'reactstrap'
 
-export default function App() {
+function FormHook() {
+
     const { register, handleSubmit, watch, errors } = useForm()
     const onSubmit = data => { console.log(data) }
 
@@ -12,7 +14,7 @@ export default function App() {
         <form onSubmit={handleSubmit(onSubmit)}>
         
         {/* register your input into the hook by invoking the "register" function*/}
-        <input name="example" defaultValue="test" ref={register} />
+        <input name="example" defaultValue="test" ref={register} /> <br/><br/>
         
         {/* include validation with required or other standard HTML validation rules */}
         <input name="exampleRequired" ref={register({ required: true })} />
@@ -23,3 +25,4 @@ export default function App() {
         </form>
     )
 }
+export default FormHook;
