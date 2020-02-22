@@ -1,13 +1,26 @@
 // First: import useState, which is a named export from 'react'
 // We could alternatively skip this step, and write React.useState
 import React, { useState } from 'react';
+import {useForm} from "react-form-hook";
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import axios from 'axios';
 
-function PostBook() {
+const PostBook = props => {
+    const defaultValues = {
+        title: '',
+        author: '',
+        pages: '',
+        language: '',
+        publisher_id: ''
+    }
+
+    const { PostBook, errors, formState, reset } = useForm({
+        defaultValues
+      });
+
     const [form, setValues] = useState({
         title: '',
         author: '',
-        published_id: '',
         pages: '',
         language: '',
         publisher_id: ''
@@ -15,19 +28,19 @@ function PostBook() {
 
     const printValues = e => {
         e.preventDefault();
-        console.log(form.title, form.author, form.published_id, form.pages, form.language, form.publisher_id);
+        console.log(form.title, form.author, form.pages, form.language, form.publisher_id);
     };
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const result = await axios.post('http://localhost:3000/persons',
-{
+            const result = await axios.post('http://127.0.0.1:8080/books',
+    {
             title: form.title,
             author: form.author,
-            published_id: form.pages,
+            pages: form.pages,
             language: form.language,
-            publisher_id: form.published_id
+            publisher_id: form.publisher_id
         });
         if (result.status === 201) {
             alert('Data inserted sucessfuly!');
@@ -49,36 +62,37 @@ const updateField = e => {
 return (
     <form onSubmit={handleSubmit}>
         <label>
-            Title:
-            <input value={form.firstname} name="title" onChange={updateField} />
+            Title:<br/>
+            <input value={form.title} type="text" class="form-control" 
+            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
         </label>
-        <br />
+        <br/>
         <label>
-            Author:
-        <input value={form.lastname} name="author" onChange={updateField} />
+            Author:<br/>
+            <input value={form.title} type="text" class="form-control" 
+            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
         </label>
-        <br />
+        <br/>
         <label>
-            Published Id:
-        <input value={form.lastname} name="published_id" onChange={updateField} />
+            Pages:<br/>
+            <input value={form.title} type="text" class="form-control" 
+            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
         </label>
-        <br />
+        <br/>
         <label>
-            Pages:
-        <input value={form.lastname} name="pages" onChange={updateField} />
+            Language:<br/>
+            <input value={form.title} type="text" class="form-control" 
+            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
         </label>
-        <br />
+        <br/>
         <label>
-            Language:
-        <input value={form.lastname} name="language" onChange={updateField} />
+            Publisher Id:<br/>
+            <input value={form.title} type="text" class="form-control" 
+            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
         </label>
-        <br />
-        <label>
-            Publisher Id:
-        <input value={form.lastname} name="publisher_id" onChange={updateField} />
-        </label>
-        <br />
-        <button>Submit</button>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-primary" onClick={() => { reset(defaultValues); }}>Submit</button>
         </form>
     );
 }
