@@ -1,5 +1,5 @@
 import React from 'react'
-import {useForm} from 'react-form-hook'
+import {useForm} from 'react-hook-form'
 
 function FormHook() {
 

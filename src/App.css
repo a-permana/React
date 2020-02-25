@@ -57,20 +57,38 @@ img.avatar {
   text-align: right;
   width: 80%;
   color: white;
-  float: center;
 }
 span.psw {
   float: right;
   padding-top: 16px;
 }
-nav{
+.navbar{
   font-family: roboto;
-  color: salmon;
+  font: white;
   text-decoration: none;
+  background-color: teal;
+  height: 50px;
 }
-
-
-
+.thead
+{
+    background-color: dodgerblue;
+    color: white;
+}
+table
+{
+    border-collapse: collapse;
+    width: 75%;
+}
+table, th, td
+{
+    border: 1px solid gainsboro;
+    padding: 10px;
+    text-align: center;
+}
+/* tr:nth-child(odd)
+{
+    background-color: Lavender;
+} */
 
 /* .App {
   text-align: center;

@@ -1,7 +1,5 @@
-// First: import useState, which is a named export from 'react'
-// We could alternatively skip this step, and write React.useState
 import React, { useState } from 'react';
-import {useForm} from "react-form-hook";
+import {useForm} from "react-hook-form";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import axios from 'axios';
 
@@ -64,31 +62,31 @@ return (
         <label>
             Title:<br/>
             <input value={form.title} type="text" class="form-control" 
-            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
+            name="title" onChange={updateField} />
         </label>
         <br/>
         <label>
             Author:<br/>
-            <input value={form.title} type="text" class="form-control" 
-            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
+            <input value={form.author} type="text" class="form-control" 
+           name="author" onChange={updateField} />
         </label>
         <br/>
         <label>
             Pages:<br/>
-            <input value={form.title} type="text" class="form-control" 
-            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
+            <input value={form.pages} type="text" class="form-control" 
+            name="pages" onChange={updateField} />
         </label>
         <br/>
         <label>
             Language:<br/>
-            <input value={form.title} type="text" class="form-control" 
-            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
+            <input value={form.language} type="text" class="form-control" 
+            name="language" onChange={updateField} />
         </label>
         <br/>
         <label>
             Publisher Id:<br/>
-            <input value={form.title} type="text" class="form-control" 
-            ref={PostBook({required: "Required"})}name="title" onChange={updateField} />
+            <input value={form.publisher_id} type="text" class="form-control" 
+            name="publisher_id" onChange={updateField} />
         </label>
         <br/>
         <br/>
@@ -97,3 +95,5 @@ return (
     );
 }
 export default PostBook;
+
+// ref={PostBook({required: "Required"})}

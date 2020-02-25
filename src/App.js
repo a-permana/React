@@ -13,7 +13,6 @@ import FormHook from './Validation/FormHook';
 import GetBook from './hook/GetBook';
 import PostBook from './hook/PostBook';
 import PutBook from './hook/PutBook';
-import FetchBook from './hook/FetchBook';
 // import Notfound from './router/notfound';
 
 const App = props => {
@@ -31,8 +30,7 @@ const App = props => {
           <Route path="/FormHook" component={FormHook} />
           <Route path="/GetBook" component={GetBook} />
           <Route path="/PostBook" component={PostBook} />
-          <Route path="/PutBook" component={PutBook} />
-          <Route path="/FetchBook" component={FetchBook} />
+          <Route path="/PutBook/:id" component={PutBook} />
           {/* <Route component={Notfound} /> */}
         </Switch>
       </Main>

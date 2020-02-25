@@ -19,8 +19,8 @@ const Navigation = () => {
 
     const toggle = () => setIsOpen(!isOpen);
     return (
-        <Navbar color="light" light expand="md">
-        <NavbarBrand href={'/'}>reactstrap</NavbarBrand>
+        <Navbar color="teal" light expand="md">
+        <NavbarBrand href={'/'}>BelajarCode</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
@@ -28,7 +28,7 @@ const Navigation = () => {
         <NavItem>
             <NavLink to="/home" tag={RRNavLink}>
                 Home
-            </NavLink>
+            </NavLink> <br/>
         </NavItem>
         <NavItem>
             <NavLink to="/profile" tag={RRNavLink}>
@@ -53,16 +53,6 @@ const Navigation = () => {
         <NavItem>
             <NavLink to="/PostBook" tag={RRNavLink}>
                 Post
-            </NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to="/PutBook" tag={RRNavLink}>
-                Put
-            </NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink to="/FetchBook" tag={RRNavLink}>
-                fetch
             </NavLink>
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
