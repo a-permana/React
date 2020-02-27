@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 function GetBook() {
     const [data, setData] = useState({book:[]});
+    const token = JSON.parse(
+        sessionStorage.getItem("persisted_state_hook:token")
+      );
 
     useMemo(() => {
         const fetchData = async () => {
         const result = await axios.get('http://127.0.0.1:8080/books');
         setData(result.data);
+        // setRole(result.data.Role);
     };
     try {
         fetchData();
@@ -37,40 +41,61 @@ function GetBook() {
             ]
         });
     }
+    async function deleteBook(id) {
+        
+        await axios({
+            method: "delete",
 
-    function deleteBook(id) {
-        axios.delete(`http://127.0.0.1:8080/books/${id}`);
-        window.location.reload(false);
-    }
+        url: `http://127.0.0.1:8080/books/${id}`,
+        header: {
+            Authorization: token.token.accessToken
+        },
+    data: data
+})
+window.location.reload(false);
+}
 
     const render = () => {
+        let no = 1;
         return data.book.map((data, id) => {
             return (
                 <tr key={id}>
-                    <td>{data.id}</td>
+                    <td>{no++}</td>
                     <td>{data.title}</td>
                     <td>{data.author}</td>
                     <td>{data.pages}</td>
                     <td>{data.language}</td>
                     <td>{data.publisher_id}</td>
                     <td>
-                        <Link to={"/Putbook/" + data.id}>
-                            <i className="fa fa-pencil" width="5px"></i>
-                        </Link>
-                    </td>
-                    <td>
-                        <i
-                            className="fa fa-trash" width="5px"
-
+                    <Link to={"/PutBook/" + data.id}>
+                        <button
+                            type="button"
+                            className="btn btn-success active">
+                                Edit
+                        </button>
+                    </Link> &nbsp;
+                        <button
+                            type="button"
+                            className="btn btn-danger active"
                             onClick={() => deleteConfirm(data.title, data.id)}>
-                        </i>
+                                Hapus
+                        </button>
                     </td>
                 </tr>
             );
         });
     };
-
     return (
+        <div className="container mt-5 ">
+            <span>
+            <Link to={"/PostBook/" + data.id}>
+                <button
+                    type="button"
+                        className="btn btn-primary mb1 bg-teal">
+                            Add
+                </button>
+            </Link>
+            </span>
         <table class="table">
             <thead class="thead">
                 <tr>
@@ -80,12 +105,12 @@ function GetBook() {
                     <th scope="col">Pages</th>
                     <th scope="col">Language</th>
                     <th scope="col">Publisher ID</th>
-                    <th scope="col">Edit Book</th>
-                    <th scope="col">Delete Book</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>{render()}</tbody>
         </table>
+        </div>
     );
 }
 export default GetBook;

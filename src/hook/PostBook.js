@@ -58,40 +58,67 @@ const updateField = e => {
 };
 
 return (
+    <div class="container7 mt-5">
     <form onSubmit={handleSubmit}>
         <label>
             Title:<br/>
-            <input value={form.title} type="text" class="form-control" 
-            name="title" onChange={updateField} />
+            <input 
+            type="text" 
+            placeholder="Enter title"
+            class="form-control" 
+            name="title"
+            value={form.title}  
+            onChange={updateField} />
         </label>
         <br/>
         <label>
             Author:<br/>
-            <input value={form.author} type="text" class="form-control" 
-           name="author" onChange={updateField} />
+            <input 
+            type="text"
+            placeholder="Enter author" 
+            class="form-control" 
+            name="author" 
+            value={form.author} 
+            onChange={updateField} />
         </label>
         <br/>
         <label>
             Pages:<br/>
-            <input value={form.pages} type="text" class="form-control" 
-            name="pages" onChange={updateField} />
+            <input 
+            type="text"
+            placeholder="Enter pages" 
+            class="form-control" 
+            name="pages" 
+            value={form.pages} 
+            onChange={updateField} />
         </label>
         <br/>
         <label>
             Language:<br/>
-            <input value={form.language} type="text" class="form-control" 
-            name="language" onChange={updateField} />
+            <input 
+            type="text"
+            placeholder="Enter language" 
+            class="form-control" 
+            name="language" 
+            value={form.language} 
+            onChange={updateField} />
         </label>
         <br/>
         <label>
             Publisher Id:<br/>
-            <input value={form.publisher_id} type="text" class="form-control" 
-            name="publisher_id" onChange={updateField} />
+            <input  
+            type="text"
+            placeholder="Enter publisher ID" 
+            class="form-control" 
+            name="publisher_id" 
+            value={form.publisher_id}
+            onChange={updateField} />
         </label>
         <br/>
         <br/>
         <button type="submit" class="btn btn-primary" onClick={() => { reset(defaultValues); }}>Submit</button>
         </form>
+        </div>
     );
 }
 export default PostBook;
